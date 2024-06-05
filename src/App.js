@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
+import About from "./containers/About";
+import CourseView from "./containers/CourseView";
+import FinanceView from "./containers/FinanceView";
+import Home from "./containers/Home";
+import PlanCreate from "./containers/PlanCreate";
+import PlanView from "./containers/PlanView";
+import ProgramView from "./containers/ProgramView";
+import UserCreate from "./containers/UserCreate";
+
+import "./App.css";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" exact Component={Home}></Route>
+        <Route path="/about" Component={About}></Route>
+        <Route path="/courses" Component={CourseView}></Route>
+        <Route path="/finances" Component={FinanceView}></Route>
+        <Route path="/plan/view" Component={PlanView}></Route>
+        <Route path="/plan/create" Component={PlanCreate}></Route>
+        <Route path="/programs" Component={ProgramView}></Route>
+        <Route path="/signup" Component={UserCreate}></Route>
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
