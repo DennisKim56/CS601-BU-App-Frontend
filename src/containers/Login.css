@@ -1,0 +1,49 @@
+.login-page {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  padding: 2rem;
+  margin: auto 4rem auto 1rem;
+  border-radius: 5px;
+  outline: solid 1px;
+}
+
+.login-input-container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-gap: 1rem 0.5rem;
+}
+
+.submit-login {
+  margin: 1.5rem 0 0.5rem;
+  text-align: center;
+}
+
+.submit-btn {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.create-account-link-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.create-account-link {
+  font-style: italic;
+}
+
+.login-splash {
+  border-radius: 5px;
+}
+
+.login-error {
+  color: red;
+  text-align: center;
+  font-style: italic;
+}

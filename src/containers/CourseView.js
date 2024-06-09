@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 import CourseList from "../components/CourseList";
 
-const courseApiUrl = "http://localhost:5000/api/courses/all";
+import Config from "../utility/config";
+const courseApiUrl = Config.BACKEND_URL + "/courses/all";
 
 const CourseView = () => {
   const [courseData, setCourseData] = useState([]);

@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import About from "./containers/About";
@@ -18,13 +18,19 @@ import Header from "./components/Header";
 import "./App.css";
 
 const App = () => {
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    if (Object.keys(user).length === 0) {
+    }
+  }, []);
+
   return (
     <>
       <Header />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<CourseView />} />
           <Route path="/finances" element={<FinanceView />} />
