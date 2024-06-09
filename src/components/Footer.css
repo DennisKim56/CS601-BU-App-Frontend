@@ -1,0 +1,21 @@
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.footer-text {
+  font-size: 1.2rem;
+  margin: 0.5rem;
+}
+
+.footer-link-container {
+  margin: 0.5rem;
+}
+
+.footer-link-container > a {
+  margin: 0 1rem;
+}

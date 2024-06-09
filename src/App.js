@@ -5,27 +5,38 @@ import About from "./containers/About";
 import CourseView from "./containers/CourseView";
 import FinanceView from "./containers/FinanceView";
 import Home from "./containers/Home";
+import Login from "./containers/Login";
+import PageNotFound from "./containers/PageNotFound";
 import PlanCreate from "./containers/PlanCreate";
 import PlanView from "./containers/PlanView";
 import ProgramView from "./containers/ProgramView";
 import UserCreate from "./containers/UserCreate";
 
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+
 import "./App.css";
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" exact Component={Home}></Route>
-        <Route path="/about" Component={About}></Route>
-        <Route path="/courses" Component={CourseView}></Route>
-        <Route path="/finances" Component={FinanceView}></Route>
-        <Route path="/plan/view" Component={PlanView}></Route>
-        <Route path="/plan/create" Component={PlanCreate}></Route>
-        <Route path="/programs" Component={ProgramView}></Route>
-        <Route path="/signup" Component={UserCreate}></Route>
-      </Routes>
-    </Router>
+    <>
+      <Header />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/courses" element={<CourseView />} />
+          <Route path="/finances" element={<FinanceView />} />
+          <Route path="/plan/view" element={<PlanView />} />
+          <Route path="/plan/create" element={<PlanCreate />} />
+          <Route path="/programs" element={<ProgramView />} />
+          <Route path="/signup" element={<UserCreate />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Router>
+      <Footer />
+    </>
   );
 };
 
