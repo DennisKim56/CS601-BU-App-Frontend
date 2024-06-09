@@ -1,0 +1,13 @@
+.error-container {
+  text-align: center;
+  font-size: 12rem;
+  color: #cc0000;
+}
+
+.error-return-link {
+  text-align: center;
+  font-size: 2rem;
+}
+.return-icon {
+  margin-right: 1rem;
+}

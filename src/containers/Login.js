@@ -6,7 +6,7 @@ import Config from "../utility/config";
 
 import "./Login.css";
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, user }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
@@ -60,40 +60,45 @@ const Login = ({ setUser }) => {
   };
   return (
     <div className="login-page">
-      <div className="login-form">
-        <div className="login-input-container">
-          <label className="form-label">Username:</label>
-          <input
-            id="username-input"
-            className="form-input"
-            type="text"
-            value={username}
-            onChange={handleUsernameChange}
-          />
-          <label className="form-label">Password:</label>
-          <input
-            id="password-input"
-            className="form-input"
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
+      {user ? (
+        <div className="login-form">You are already logged in</div>
+      ) : (
+        <div className="login-form">
+          <div className="login-input-container">
+            <label className="form-label">Username:</label>
+            <input
+              id="username-input"
+              className="form-input"
+              type="text"
+              value={username}
+              onChange={handleUsernameChange}
+            />
+            <label className="form-label">Password:</label>
+            <input
+              id="password-input"
+              className="form-input"
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <div className="submit-login">
+            <input
+              type="submit"
+              value="Login"
+              className="submit-btn"
+              onClick={handleSubmit}
+            />
+          </div>
+          {error && <div className="login-error">Error: Login Failed</div>}
+          <div className="create-account-link-container">
+            <Link to="/signup" className="create-account-link">
+              Create Account
+            </Link>
+          </div>
         </div>
-        <div className="submit-login">
-          <input
-            type="submit"
-            value="Login"
-            className="submit-btn"
-            onClick={handleSubmit}
-          />
-        </div>
-        {error && <div className="login-error">Error: Login Failed</div>}
-        <div className="create-account-link-container">
-          <Link to="/signup" className="create-account-link">
-            Create Account
-          </Link>
-        </div>
-      </div>
+      )}
+
       <img
         className="login-splash"
         src={Config.S3_URL_PREFIX + "boston_university.png"}
