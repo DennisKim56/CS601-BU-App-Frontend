@@ -4,15 +4,52 @@
 }
 
 .create-user-form-container {
-  padding: 2rem;
+  padding: 0.1rem 2rem 2rem;
   border-radius: 5px;
 }
 
 .create-user-form-title {
+  text-align: center;
+}
+
+.create-user-form-grid {
+  margin: auto;
+  display: grid;
+  grid-template-rows: 2rem;
+  grid-auto-rows: 2rem;
+  grid-template-columns: 9rem 15rem;
+  justify-items: start;
+  align-items: center;
+  grid-gap: 1rem 1rem;
+}
+
+.create-user-form-submit-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.create-user-form-submit-container > input {
+  font-size: 1.2rem;
+  padding: 0.5rem;
 }
 
 .shadow {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.input-error {
+  outline: 3px solid red;
+}
+
+.input-error-message {
+  margin-top: 2rem;
+  color: red;
+  text-align: center;
+}
+
+.logged-in {
+  margin-top: 3rem;
+  font-size: 3rem;
 }

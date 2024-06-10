@@ -20,7 +20,7 @@ import Config from "./utility/config";
 import "./App.css";
 
 const App = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const toggleNavbar = () => {
@@ -58,11 +58,11 @@ const App = () => {
           console.log(data);
           window.localStorage.setItem("userId", data.id);
           window.localStorage.setItem("name", data.name);
-          window.localStorage.setItem("userName", data.username);
+          window.localStorage.setItem("username", data.username);
           setUser({
             userId: data.userId,
             name: data.name,
-            userName: data.userName,
+            username: data.username,
           });
         } else {
           logout();
@@ -90,7 +90,10 @@ const App = () => {
           <Route path="/plan/view" element={<PlanView />} />
           <Route path="/plan/create" element={<PlanCreate />} />
           <Route path="/programs" element={<ProgramView />} />
-          <Route path="/signup" element={<UserCreate />} />
+          <Route
+            path="/signup"
+            element={<UserCreate setUser={setUser} user={user} />}
+          />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Footer />

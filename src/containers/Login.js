@@ -46,11 +46,11 @@ const Login = ({ setUser, user }) => {
       window.localStorage.setItem("token", data.token);
       window.localStorage.setItem("userId", data.userId);
       window.localStorage.setItem("name", data.name);
-      window.localStorage.setItem("userName", data.userName);
+      window.localStorage.setItem("username", data.username);
       setUser({
         userId: data.userId,
         name: data.name,
-        userName: data.userName,
+        username: data.username,
       });
       setError(undefined);
       navigate("/");
