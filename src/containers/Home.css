@@ -1,0 +1,22 @@
+.home-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media (max-width: 1320px) {
+  .home-container {
+    flex-direction: column;
+  }
+}
+
+.home-splash {
+  max-width: 800px;
+  margin: 3rem;
+  border-radius: 5px;
+}
+
+.home-text {
+  margin: 3rem;
+  font-size: 2rem;
+}

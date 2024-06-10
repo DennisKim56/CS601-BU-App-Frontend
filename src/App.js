@@ -55,7 +55,6 @@ const App = () => {
 
         if (response.status === 200 && response.ok) {
           const data = await response.json();
-          console.log(data);
           window.localStorage.setItem("userId", data.id);
           window.localStorage.setItem("name", data.name);
           window.localStorage.setItem("username", data.username);
@@ -77,7 +76,9 @@ const App = () => {
     <>
       <Router>
         <Header toggleNavbar={toggleNavbar} />
-        {navbarOpen && <Navbar toggleNavbar={toggleNavbar} user={user} />}
+        {navbarOpen && (
+          <Navbar logout={logout} toggleNavbar={toggleNavbar} user={user} />
+        )}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -86,9 +87,13 @@ const App = () => {
           />
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<CourseView />} />
-          <Route path="/finances" element={<FinanceView />} />
-          <Route path="/plan/view" element={<PlanView />} />
-          <Route path="/plan/create" element={<PlanCreate />} />
+          {user && (
+            <>
+              <Route path="/finances" element={<FinanceView />} />
+              <Route path="/plan/view" element={<PlanView />} />
+              <Route path="/plan/create" element={<PlanCreate />} />
+            </>
+          )}
           <Route path="/programs" element={<ProgramView />} />
           <Route
             path="/signup"

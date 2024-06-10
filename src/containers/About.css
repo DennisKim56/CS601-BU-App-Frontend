@@ -1,0 +1,73 @@
+.about-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-header-images {
+  display: flex;
+  justify-content: center;
+}
+
+.about-profile {
+  border-radius: 300px;
+  height: 250px;
+  width: auto;
+  margin: 2rem;
+}
+
+.about-title {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.about-content {
+  margin: 2rem;
+  font-size: 1.5rem;
+}
+
+.about-dog-images {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+
+.about-dogs {
+  max-height: 500px;
+  border-radius: 5px;
+}
+
+.about-contact-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-contact {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contact-linkedin::before {
+  content: "\f08c";
+  left: -2px;
+}
+
+.contact-email::before {
+  content: "\f0e0";
+  left: -4px;
+}
+
+.contact-linkedin::before,
+.contact-email::before {
+  font-family: FontAwesome;
+  margin-right: 4px;
+  position: relative;
+}
+
+.contact-linkedin,
+.contact-email {
+  text-decoration: none;
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}

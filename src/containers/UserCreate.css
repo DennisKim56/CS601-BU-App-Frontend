@@ -6,6 +6,7 @@
 .create-user-form-container {
   padding: 0.1rem 2rem 2rem;
   border-radius: 5px;
+  min-width: 500px;
 }
 
 .create-user-form-title {
@@ -13,14 +14,23 @@
 }
 
 .create-user-form-grid {
-  margin: auto;
+  margin: auto auto 1.5rem auto;
   display: grid;
   grid-template-rows: 2rem;
   grid-auto-rows: 2rem;
-  grid-template-columns: 9rem 15rem;
+  grid-template-columns: 0.7fr 1fr;
   justify-items: start;
   align-items: center;
   grid-gap: 1rem 1rem;
+}
+
+.form-label {
+  font-size: 1.5rem;
+  text-align: right;
+  width: 100%;
+}
+
+.form-input {
 }
 
 .create-user-form-submit-container {
@@ -44,11 +54,13 @@
 }
 
 .input-error-message {
-  margin-top: 2rem;
   color: red;
   text-align: center;
 }
 
+.input-error-message:first-of-type {
+  margin-top: 2rem;
+}
 .logged-in {
   margin-top: 3rem;
   font-size: 3rem;

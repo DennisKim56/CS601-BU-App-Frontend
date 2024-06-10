@@ -80,6 +80,11 @@ const Login = ({ setUser, user }) => {
               type="password"
               value={password}
               onChange={handlePasswordChange}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit();
+                }
+              }}
             />
           </div>
           <div className="submit-login">

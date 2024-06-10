@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Config from "../utility/config";
 
@@ -15,8 +15,8 @@ const UserCreate = ({ setUser, user }) => {
   const [usernameError, setUsernameError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [password2Error, setpassword2Error] = useState(false);
-  const [error, setError] = useState(null);
 
+  const error = useRef([]);
   const handleChange = (e, field) => {
     switch (field) {
       case "name":
@@ -70,37 +70,39 @@ const UserCreate = ({ setUser, user }) => {
     setUsernameError(false);
     setPasswordError(false);
     setpassword2Error(false);
-    setError(null);
+    while (error.current.length > 0) {
+      error.current.pop();
+    }
     let passValidation = true;
     if (!validateName(name)) {
       setNameError(true);
-      setError("Invalid name");
+      error.current.push("Invalid name");
       passValidation = false;
     }
     if (!validateEmail(email)) {
       setEmailError(true);
-      setError("Invalid email");
+      error.current.push("Invalid email");
       passValidation = false;
     }
     if (!validateUsername(username)) {
       setUsernameError(true);
-      setError("Invalid username");
+      error.current.push("Invalid username");
       passValidation = false;
     }
     if (!validatePassword(password)) {
       setPasswordError(true);
-      setError("Invalid password");
+      error.current.push("Invalid password");
       passValidation = false;
     }
     if (!validatePassword(password2)) {
       setpassword2Error(true);
-      setError("Invalid password");
+      error.current.push("Invalid password");
       passValidation = false;
     }
     if (password != password2) {
       setPasswordError(true);
       setpassword2Error(true);
-      setError("Passwords do not match");
+      error.current.push("Passwords do not match");
       passValidation = false;
     }
     if (passValidation) {
@@ -138,13 +140,13 @@ const UserCreate = ({ setUser, user }) => {
         });
       } else if (response.status === 422) {
         setUsernameError(true);
-        setError("Username Already Exists");
+        error.current.push("Username Already Exists");
       } else {
-        setError("Login Failed");
+        error.current.push("Login Failed");
       }
     }
   };
-  console.log(user);
+  console.log(error.current.length);
   return (
     <div className="create-user-container">
       {user ? (
@@ -153,43 +155,62 @@ const UserCreate = ({ setUser, user }) => {
         <div id="form-id" className="create-user-form-container shadow">
           <h1 className="create-user-form-title">Create Account</h1>
           <div className="create-user-form-grid">
-            <label>Name</label>
+            <label className="form-label">Name</label>
             <input
-              className={nameError ? "input-error" : ""}
+              className={nameError ? "input-error form-input" : "form-input"}
               type="text"
               value={name}
               onChange={(e) => handleChange(e, "name")}
             />
-            <label>Email</label>
+            <label className="form-label">Email</label>
             <input
-              className={emailError ? "input-error" : ""}
+              className={emailError ? "input-error form-input" : "form-input"}
               type="email"
               value={email}
               onChange={(e) => handleChange(e, "email")}
             />
-            <label>Username</label>
+            <label className="form-label">Username</label>
             <input
-              className={usernameError ? "input-error" : ""}
+              className={
+                usernameError ? "input-error form-input" : "form-input"
+              }
               type="text"
               value={username}
               onChange={(e) => handleChange(e, "username")}
             />
-            <label>Password</label>
+            <label className="form-label">Password</label>
             <input
-              className={passwordError ? "input-error" : ""}
+              className={
+                passwordError ? "input-error form-input" : "form-input"
+              }
               type="password"
               value={password}
               onChange={(e) => handleChange(e, "password")}
             />
-            <label>Confirm Password</label>
+            <label className="form-label">Confirm Password</label>
             <input
-              className={password2Error ? "input-error" : ""}
+              className={
+                password2Error ? "input-error form-input" : "form-input"
+              }
               type="password"
               value={password2}
               onChange={(e) => handleChange(e, "password2")}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit();
+                }
+              }}
             />
           </div>
-          {error && <div className="input-error-message">{error}</div>}
+          {error.current.length > 0 &&
+            error.current.map((msg, index) => {
+              return (
+                <div className="input-error-message" key={index}>
+                  {msg}
+                </div>
+              );
+            })}
+
           <div className="create-user-form-submit-container">
             <input type="submit" value="Create" onClick={handleSubmit} />
           </div>

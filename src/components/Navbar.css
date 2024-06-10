@@ -3,10 +3,12 @@
   position: fixed;
   background: #5d554a;
   min-width: 16rem;
+  color: white;
 }
 
 .close-btn-container {
   text-align: right;
+  margin-bottom: 1rem;
 }
 
 .close-btn-container:hover {
@@ -34,4 +36,27 @@
 
 .user-icon {
   font-size: 5rem;
+  color: black;
+}
+
+.user-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem 0.5rem;
+  font-size: 1.1rem;
+}
+
+.user-detail-label {
+  text-align: right;
+}
+
+.user-detail-info {
+  text-align: left;
+}
+
+.navbar-link {
+  display: block;
+  font-size: 1.5rem;
+  color: white;
+  margin: 1rem 0 1rem 1.5rem;
 }
