@@ -30,11 +30,14 @@
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .about-dogs {
   max-height: 500px;
   border-radius: 5px;
+  margin: 2rem;
 }
 
 .about-contact-container {

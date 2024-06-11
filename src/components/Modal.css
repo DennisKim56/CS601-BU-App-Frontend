@@ -1,0 +1,27 @@
+.modal-overlay {
+  z-index: 100;
+  position: fixed;
+  top: 10vh;
+  left: 15%;
+  width: 70%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 8px;
+}
+.modal-header {
+  text-align: center;
+  margin: 2rem 5%;
+}
+
+.modal-label {
+  margin: 2rem 5% 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.modal-content,
+.modal-footer {
+  margin: 0 5% 2rem;
+  font-size: 1.2rem;
+}

@@ -12,6 +12,7 @@ import PlanView from "./containers/PlanView";
 import ProgramView from "./containers/ProgramView";
 import UserCreate from "./containers/UserCreate";
 
+import Backdrop from "./components/Backdrop";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -77,7 +78,10 @@ const App = () => {
       <Router>
         <Header toggleNavbar={toggleNavbar} />
         {navbarOpen && (
-          <Navbar logout={logout} toggleNavbar={toggleNavbar} user={user} />
+          <>
+            <Backdrop onClick={toggleNavbar} />
+            <Navbar logout={logout} toggleNavbar={toggleNavbar} user={user} />
+          </>
         )}
         <Routes>
           <Route path="/" element={<Home />} />

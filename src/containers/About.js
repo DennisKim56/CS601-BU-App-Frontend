@@ -48,10 +48,10 @@ const About = () => {
         <img
           className="about-dogs"
           src={Config.S3_URL_PREFIX + "jj-min.jpg"}
-          alt="Image of my dog JJ"
+          alt="My dog JJ"
         />
         <div className="about-contact-container">
-          <div className="about-contact">Professional Contact</div>
+          <div className="about-contact">Let's Connect!</div>
           <Link
             className="contact-linkedin"
             to="https://www.linkedin.com/in/denniskim-1/"
@@ -76,7 +76,7 @@ const About = () => {
         <img
           className="about-dogs"
           src={Config.S3_URL_PREFIX + "saquon.jpg"}
-          alt="Image of my dog Saquon"
+          alt="My dog Saquon"
         />
       </div>
     </div>

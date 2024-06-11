@@ -2,9 +2,10 @@ import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
-import Config from "../utility/config";
-
 import "./Login.css";
+
+import Config from "../utility/config";
+const loginApiUrl = Config.BACKEND_URL + "/users/login";
 
 const Login = ({ setUser, user }) => {
   const [username, setUsername] = useState("");
@@ -36,10 +37,7 @@ const Login = ({ setUser, user }) => {
       body: payload,
     };
 
-    const response = await fetch(
-      Config.BACKEND_URL + "/users/login",
-      requestOptions
-    );
+    const response = await fetch(loginApiUrl, requestOptions);
 
     if (response.status === 200 && response.ok) {
       const data = await response.json();
@@ -67,7 +65,6 @@ const Login = ({ setUser, user }) => {
           <div className="login-input-container">
             <label className="form-label">Username:</label>
             <input
-              id="username-input"
               className="form-input"
               type="text"
               value={username}
@@ -75,7 +72,6 @@ const Login = ({ setUser, user }) => {
             />
             <label className="form-label">Password:</label>
             <input
-              id="password-input"
               className="form-input"
               type="password"
               value={password}

@@ -1,0 +1,26 @@
+.program-container {
+  flex-grow: 1;
+  padding: 2rem;
+  display: grid;
+  grid-template-rows: minmax(15rem, auto);
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 2rem 2rem;
+  grid-auto-rows: minmax(15rem, auto);
+  grid-auto-columns: minmax(20rem, 1fr);
+  margin: 2rem;
+}
+
+.program-view-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  text-decoration: underline;
+}
+
+.no-data-available {
+  text-align: center;
+  font-size: 3rem;
+  color: #aa0000;
+  flex-grow: 1;
+  margin: 3rem;
+}

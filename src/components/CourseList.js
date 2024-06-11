@@ -1,15 +1,32 @@
 import CourseItem from "./CourseItem";
 
-const CourseList = ({ courseData }) => {
+const CourseList = ({
+  courseData,
+  setShowModal,
+  setModalTitle,
+  setModalContent,
+  setModalFooter,
+}) => {
   let renderContent;
   if (courseData && courseData.length > 0) {
     renderContent = courseData.map((item) => {
-      return <CourseItem data={item} key={item.courseId} />;
+      return (
+        <CourseItem
+          data={item}
+          key={item.courseId}
+          setShowModal={setShowModal}
+          setModalTitle={setModalTitle}
+          setModalContent={setModalContent}
+          setModalFooter={setModalFooter}
+        />
+      );
     });
   } else {
-    renderContent = <h2>No Course Content Found</h2>;
+    renderContent = (
+      <div className="no-courses-found">No Course Content Found</div>
+    );
   }
-  return <div className="course-container">{renderContent}</div>;
+  return <>{renderContent}</>;
 };
 
 export default CourseList;
