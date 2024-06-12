@@ -1,0 +1,39 @@
+.schedule-course-container {
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: 0 1rem 2rem;
+}
+
+.schedule-course-container-label {
+  margin: 1rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.schedule-course-container-grid {
+  display: grid;
+  grid-template-rows: 5rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 1rem 1rem;
+  grid-auto-rows: 5rem;
+  grid-auto-columns: minmax(20rem, 1fr);
+  padding: 1rem;
+}
+
+.course-choice-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.course-choice-separator {
+  margin: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .course-choice-container {
+    flex-direction: column;
+  }
+}

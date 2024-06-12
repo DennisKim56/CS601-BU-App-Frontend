@@ -1,0 +1,33 @@
+.create-plan-course-item {
+  padding: 0 1rem;
+  border-radius: 5px;
+  border: solid 1px black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.required-course {
+  background-color: #e4f0c9;
+}
+
+.elective-course {
+  background-color: #c7e0ff;
+}
+
+.choice-course {
+  background-color: #ffd3c9;
+}
+
+.create-plan-course-item-id {
+  font-size: 1.5rem;
+}
+
+.create-plan-course-item-title {
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

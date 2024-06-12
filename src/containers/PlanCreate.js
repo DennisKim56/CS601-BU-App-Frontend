@@ -10,19 +10,10 @@ import "./PlanCreate.css";
 import Config from "../utility/config";
 const getPlanApiUrl = Config.BACKEND_URL + "/plans";
 
-const TERM_SEQUENCE = [
-  "Spring 1",
-  "Spring 2",
-  "Summer 1",
-  "Summer 2",
-  "Fall 1",
-  "Fall 2",
-];
-
 const PlanCreate = ({ logout, planData, setPlanData }) => {
-  const [programDefinition, setProgramDefinition] = useState({});
-  const [startTerm, setStartTerm] = useState({});
-  const [startYear, setStartYear] = useState({});
+  const [programDefinition, setProgramDefinition] = useState(null);
+  const [startTerm, setStartTerm] = useState(null);
+  const [startYear, setStartYear] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -69,13 +60,19 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
             setProgramDefinition={setProgramDefinition}
             setStartTerm={setStartTerm}
             setStartYear={setStartYear}
-            TERM_SEQUENCE={TERM_SEQUENCE}
           />
-          <CreatePlanCreator
-            programDefinition={programDefinition}
-            startTerm={startTerm}
-            startYear={startYear}
-          />
+          {programDefinition && startTerm && startYear ? (
+            <CreatePlanCreator
+              programDefinition={programDefinition}
+              startTerm={startTerm}
+              startYear={startYear}
+            />
+          ) : (
+            <div className="create-plan-wait-inputs">
+              To get started, select a program, a starting term, and a starting
+              year
+            </div>
+          )}
         </div>
       )}
     </>

@@ -1,0 +1,77 @@
+.plan-creator-large-container {
+  display: flex;
+  padding: 2%;
+}
+
+.plan-creator-small-container {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .plan-creator-large-container {
+    display: none;
+  }
+
+  .plan-creator-small-container {
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+    margin: 2rem;
+  }
+}
+
+.plan-creator-schedule-container {
+  width: 40%;
+  display: grid;
+  grid-template-rows: 5rem;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem 0.5rem;
+  font-size: 1.1rem;
+  grid-auto-rows: 5rem;
+  margin-bottom: 2rem;
+}
+
+.plan-creator-course-container {
+  width: 60%;
+}
+
+.schedule-row-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.schedule-row-term-label {
+  font-size: 1.5rem;
+}
+
+.schedule-row-year-label {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.schedule-row-dropzone {
+  border-radius: 5px;
+  border: 1px black dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spring-label {
+  color: #0c6301;
+}
+
+.summer-label {
+  color: #00838d;
+}
+
+.winter-label {
+  color: #850d52;
+}
+
+.plus-icon {
+  font-size: 2.5rem;
+  color: gray;
+}

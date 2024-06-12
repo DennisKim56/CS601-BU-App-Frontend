@@ -17,7 +17,6 @@ const CreatePlanSelector = ({
   setProgramDefinition,
   setStartTerm,
   setStartYear,
-  TERM_SEQUENCE,
 }) => {
   const [programId, setProgramId] = useState();
   const [programList, setProgramList] = useState([]);
@@ -122,7 +121,7 @@ const CreatePlanSelector = ({
           <option hidden disabled value="default">
             -- Select A Term --
           </option>
-          {TERM_SEQUENCE.map((term) => (
+          {Config.TERM_SEQUENCE.map((term) => (
             <option value={term} key={term}>
               {term}
             </option>

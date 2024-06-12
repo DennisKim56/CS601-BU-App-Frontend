@@ -22,3 +22,15 @@
   display: flex;
   flex-direction: column;
 }
+
+.create-plan-wait-inputs {
+  font-size: 3rem;
+  text-align: center;
+  margin: 1rem;
+}
+
+@media (max-width: 682px) {
+  .create-plan-wait-inputs {
+    font-size: 2rem;
+  }
+}
