@@ -10,7 +10,6 @@ const programIcons = {
 };
 
 const ProgramTile = ({ label, data }) => {
-  console.log(data);
   return (
     <div className="program-tile">
       <Link

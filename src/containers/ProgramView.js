@@ -60,13 +60,19 @@ const ProgramView = () => {
       </div>
       {Object.keys(programData).length > 0 ? (
         <div className="program-container">
-          {Object.keys(programData).map((programTitle) => (
-            <ProgramTile
-              label={programTitle}
-              data={programData[programTitle]}
-              key={programTitle}
-            />
-          ))}
+          {Object.keys(programData)
+            .sort(
+              (a, b) =>
+                programData[b].concentrations?.length -
+                programData[a].concentrations?.length
+            )
+            .map((programTitle) => (
+              <ProgramTile
+                label={programTitle}
+                data={programData[programTitle]}
+                key={programTitle}
+              />
+            ))}
         </div>
       ) : (
         <div className="no-data-available">

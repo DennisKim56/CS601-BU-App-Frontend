@@ -32,6 +32,9 @@ const CourseView = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
+    setModalTitle(null);
+    setModalContent(null);
+    setModalFooter(null);
   };
   const filteredData = courseData.filter((course) => {
     return (

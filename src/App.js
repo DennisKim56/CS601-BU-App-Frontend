@@ -23,6 +23,7 @@ import "./App.css";
 const App = () => {
   const [user, setUser] = useState({});
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [planData, setPlanData] = useState({});
 
   const toggleNavbar = () => {
     setNavbarOpen(!navbarOpen);
@@ -33,7 +34,7 @@ const App = () => {
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("userId");
     window.localStorage.removeItem("name");
-    window.localStorage.removeItem("userName");
+    window.localStorage.removeItem("username");
   };
 
   useEffect(() => {
@@ -63,6 +64,7 @@ const App = () => {
             userId: data.userId,
             name: data.name,
             username: data.username,
+            token: token,
           });
         } else {
           logout();
@@ -93,9 +95,21 @@ const App = () => {
           <Route path="/courses" element={<CourseView />} />
           {user && (
             <>
-              <Route path="/finances" element={<FinanceView />} />
-              <Route path="/plan/view" element={<PlanView />} />
-              <Route path="/plan/create" element={<PlanCreate />} />
+              <Route
+                path="/finances"
+                element={<FinanceView logout={logout} />}
+              />
+              <Route path="/plan/view" element={<PlanView logout={logout} />} />
+              <Route
+                path="/plan/create"
+                element={
+                  <PlanCreate
+                    logout={logout}
+                    planData={planData}
+                    setPlanData={setPlanData}
+                  />
+                }
+              />
             </>
           )}
           <Route path="/programs" element={<ProgramView />} />

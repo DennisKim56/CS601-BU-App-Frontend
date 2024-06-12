@@ -99,7 +99,7 @@ const UserCreate = ({ setUser, user }) => {
       error.current.push("Invalid password");
       passValidation = false;
     }
-    if (password != password2) {
+    if (password !== password2) {
       setPasswordError(true);
       setpassword2Error(true);
       error.current.push("Passwords do not match");
@@ -137,6 +137,7 @@ const UserCreate = ({ setUser, user }) => {
           userId: data.userId,
           name: data.name,
           username: data.username,
+          token: data.token,
         });
       } else if (response.status === 422) {
         setUsernameError(true);
@@ -146,7 +147,6 @@ const UserCreate = ({ setUser, user }) => {
       }
     }
   };
-  console.log(error.current.length);
   return (
     <div className="create-user-container">
       {user ? (
@@ -212,7 +212,12 @@ const UserCreate = ({ setUser, user }) => {
             })}
 
           <div className="create-user-form-submit-container">
-            <input type="submit" value="Create" onClick={handleSubmit} />
+            <input
+              className="create-button"
+              type="submit"
+              value="Create"
+              onClick={handleSubmit}
+            />
           </div>
         </div>
       )}

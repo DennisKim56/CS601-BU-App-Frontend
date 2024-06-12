@@ -1,0 +1,24 @@
+.plan-create-exists {
+  flex-grow: 1;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.plan-create-exists-message {
+  margin: 2rem 2rem 4rem 2rem;
+}
+
+.plan-create-exists-link {
+  padding: 1rem;
+  outline: 1px solid black;
+  border-radius: 5px;
+}
+.plan-create-exists-link:hover {
+  background-color: #d6a384;
+}
+
+.create-plan-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}

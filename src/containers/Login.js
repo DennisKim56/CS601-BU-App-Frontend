@@ -49,6 +49,7 @@ const Login = ({ setUser, user }) => {
         userId: data.userId,
         name: data.name,
         username: data.username,
+        token: data.token,
       });
       setError(undefined);
       navigate("/");
