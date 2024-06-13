@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import "./CreatePlanTermDropZone.css";
 
-const CreatePlanTermDropZone = ({ sequence }) => {
+const CreatePlanTermDropZone = ({ sequence, addCourse, planCourseList }) => {
   const elemRef = useRef(null);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const CreatePlanTermDropZone = ({ sequence }) => {
       thisDiv.removeEventListener("dragleave", handleDragLeaveOrDrop);
       thisDiv.removeEventListener("drop", handleDrop);
     };
-  }, []);
+  }, [planCourseList]);
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -31,6 +31,7 @@ const CreatePlanTermDropZone = ({ sequence }) => {
     const thisDiv = elemRef.current;
     handleDragLeaveOrDrop(e);
     const dragRefId = e.dataTransfer.getData("id");
+    addCourse(dragRefId, sequence / 2);
     const dragRef = document.getElementById(dragRefId);
     thisDiv.appendChild(dragRef);
     const clone = thisDiv.cloneNode(true);

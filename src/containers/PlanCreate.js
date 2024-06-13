@@ -12,9 +12,13 @@ const getPlanApiUrl = Config.BACKEND_URL + "/plans";
 
 const PlanCreate = ({ logout, planData, setPlanData }) => {
   const [programDefinition, setProgramDefinition] = useState(null);
+  const [planCourseList, setPlanCourseList] = useState([]);
   const [startTerm, setStartTerm] = useState(null);
   const [startYear, setStartYear] = useState(null);
   const [reset, setReset] = useState(0);
+  const [existMessage, setExistMessage] = useState(
+    "A plan already exists for user."
+  );
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,12 +51,56 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
   const handleReset = () => {
     setReset(reset + 1);
   };
+
+  const addCourse = (courseId, sequence) => {
+    setPlanCourseList([
+      ...planCourseList,
+      { courseId: courseId, sequence: sequence },
+    ]);
+  };
+
+  const handleSubmitPlan = () => {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append(
+      "Authorization",
+      "Bearer " + window.localStorage.getItem("token")
+    );
+
+    const payload = JSON.stringify({
+      startingTerm: startTerm,
+      startingYear: Number(startYear),
+      program: programDefinition.program,
+      courseList: planCourseList,
+    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: payload,
+    };
+
+    (async () => {
+      const response = await fetch(getPlanApiUrl, requestOptions);
+      if (response.status === 401) {
+        navigate("/login");
+        logout();
+      } else if (response.status === 201) {
+        const data = await response.json();
+        if (data?.plan?.id) {
+          setPlanData(data.plan);
+          setExistMessage("Plan successfully created!");
+        }
+      }
+    })();
+  };
+
   return (
     <>
       {planData?.id ? (
         <div className="plan-create-exists">
-          <div className="plan-create-exists-message">
-            A plan already exists for user.
+          <div id="plan-exists" className="plan-create-exists-message">
+            {existMessage}
           </div>
           <Link to="/plan/view" className="plan-create-exists-link">
             View Plan
@@ -68,7 +116,17 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
           {programDefinition && startTerm && startYear ? (
             <>
               <div className="plan-controls">
-                <div className="plan-submit-btn">Submit</div>
+                {planCourseList.length ===
+                programDefinition.requiredCount +
+                  programDefinition.electiveCount +
+                  programDefinition.choiceCount ? (
+                  <div className="plan-submit-btn" onClick={handleSubmitPlan}>
+                    Submit
+                  </div>
+                ) : (
+                  <div className="plan-submit-btn grayed-out">Submit</div>
+                )}
+
                 <div className="plan-reset-btn" onClick={handleReset}>
                   Reset
                 </div>
@@ -78,6 +136,8 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
                 programDefinition={programDefinition}
                 startTerm={startTerm}
                 startYear={startYear}
+                addCourse={addCourse}
+                planCourseList={planCourseList}
               />
             </>
           ) : (

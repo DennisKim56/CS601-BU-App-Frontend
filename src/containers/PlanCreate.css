@@ -62,3 +62,12 @@
     font-size: 2rem;
   }
 }
+
+.plan-submit-btn.grayed-out {
+  background-color: gray;
+}
+
+.plan-submit-btn.grayed-out:hover {
+  background-color: gray;
+  cursor: default;
+}

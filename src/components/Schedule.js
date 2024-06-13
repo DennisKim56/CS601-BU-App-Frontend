@@ -4,13 +4,20 @@ import Config from "../utility/config";
 
 import "./Schedule.css";
 
-const Schedule = ({ programDefinition, startTerm, startYear }) => {
+const Schedule = ({
+  programDefinition,
+  startTerm,
+  startYear,
+  addCourse,
+  planCourseList,
+}) => {
   const totalCourse =
     programDefinition.requiredCount +
     programDefinition.electiveCount +
     programDefinition.choiceCount;
   let termPointer = Config.TERM_SEQUENCE.indexOf(startTerm);
   let year = startYear;
+
   // In order to enforce logic before the render, decrement start term by one
   if (termPointer !== 0) {
     termPointer--;
@@ -18,6 +25,7 @@ const Schedule = ({ programDefinition, startTerm, startYear }) => {
     termPointer = 5;
     year--;
   }
+
   return (
     <>
       {Array.from({ length: totalCourse * 2 }, (_, i) => i + 1).map((i) => {
@@ -46,7 +54,12 @@ const Schedule = ({ programDefinition, startTerm, startYear }) => {
           );
         } else {
           return (
-            <CreatePlanTermDropZone key={termPointer + "-" + i} sequence={i} />
+            <CreatePlanTermDropZone
+              key={termPointer + "-" + i}
+              sequence={i}
+              addCourse={addCourse}
+              planCourseList={planCourseList}
+            />
           );
         }
       })}

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import CreatePlanCourseItem from "./CreatePlanCourseItem";
 
 import "./CreatePlanCourseContainer.css";
@@ -8,24 +10,40 @@ const CreatePlanCourseContainer = ({
   choiceCount,
   electiveCount,
 }) => {
+  const [showCourses, setShowCourses] = useState(true);
+  const toggleCourseView = () => {
+    setShowCourses(!showCourses);
+  };
   if (type === "required") {
     return (
       <div className="schedule-course-container">
         <div className="schedule-course-container-label">
           Required Courses
-          <i class="fa-solid fa-eye-slash"></i>
+          {showCourses ? (
+            <i
+              className="fa-solid fa-eye-slash hide-courses"
+              onClick={toggleCourseView}
+            ></i>
+          ) : (
+            <i
+              className="fa-solid fa-eye hide-courses"
+              onClick={toggleCourseView}
+            ></i>
+          )}
         </div>
-        <div className="schedule-course-container-grid">
-          {data.map((course) => {
-            return (
-              <CreatePlanCourseItem
-                key={course.courseId}
-                data={course}
-                type="required"
-              />
-            );
-          })}
-        </div>
+        {showCourses && (
+          <div className="schedule-course-container-grid">
+            {data.map((course) => {
+              return (
+                <CreatePlanCourseItem
+                  key={course.courseId}
+                  data={course}
+                  type="required"
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   } else if (type === "elective") {
@@ -33,30 +51,57 @@ const CreatePlanCourseContainer = ({
       <div className="schedule-course-container">
         <div className="schedule-course-container-label">
           Elective Courses ({electiveCount})
-          <i class="fa-solid fa-eye-slash"></i>
+          {showCourses ? (
+            <i
+              className="fa-solid fa-eye-slash hide-courses"
+              onClick={toggleCourseView}
+            ></i>
+          ) : (
+            <i
+              className="fa-solid fa-eye hide-courses"
+              onClick={toggleCourseView}
+            ></i>
+          )}
         </div>
-        <div className="schedule-course-container-grid">
-          {data.map((course) => {
-            return (
-              <CreatePlanCourseItem
-                key={course.courseId}
-                data={course}
-                type="elective"
-              />
-            );
-          })}
-        </div>
+        {showCourses && (
+          <div className="schedule-course-container-grid">
+            {data.map((course) => {
+              return (
+                <CreatePlanCourseItem
+                  key={course.courseId}
+                  data={course}
+                  type="elective"
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   } else if (type === "choice") {
     return (
       <div className="schedule-course-container">
         <div className="schedule-course-container-label">
-          Choose a Course ({choiceCount})<i class="fa-solid fa-eye-slash"></i>
+          Choose a Course ({choiceCount})
+          {showCourses ? (
+            <i
+              className="fa-solid fa-eye-slash hide-courses"
+              onClick={toggleCourseView}
+            ></i>
+          ) : (
+            <i
+              className="fa-solid fa-eye hide-courses"
+              onClick={toggleCourseView}
+            ></i>
+          )}
         </div>
-        {data.map((choice) => {
-          return <ChoiceComponent choice={choice} key={choice.id} />;
-        })}
+        {showCourses && (
+          <>
+            {data.map((choice) => {
+              return <ChoiceComponent choice={choice} key={choice.id} />;
+            })}
+          </>
+        )}
       </div>
     );
   }

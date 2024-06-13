@@ -48,3 +48,12 @@
     height: auto;
   }
 }
+
+.hide-courses {
+  float: right;
+  margin-right: 1rem;
+}
+
+.hide-courses:hover {
+  cursor: pointer;
+}

@@ -3,7 +3,13 @@ import Schedule from "./Schedule";
 
 import "./CreatePlanCreator.css";
 
-const CreatePlanCreator = ({ programDefinition, startTerm, startYear }) => {
+const CreatePlanCreator = ({
+  programDefinition,
+  startTerm,
+  startYear,
+  addCourse,
+  planCourseList,
+}) => {
   return (
     <>
       <div className="plan-creator-large-container">
@@ -12,6 +18,8 @@ const CreatePlanCreator = ({ programDefinition, startTerm, startYear }) => {
             programDefinition={programDefinition}
             startTerm={startTerm}
             startYear={startYear}
+            addCourse={addCourse}
+            planCourseList={planCourseList}
           />
         </div>
         <div className="plan-creator-course-container">
