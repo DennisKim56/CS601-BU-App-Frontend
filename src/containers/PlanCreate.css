@@ -23,6 +23,34 @@
   flex-direction: column;
 }
 
+.plan-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.plan-submit-btn,
+.plan-reset-btn {
+  font-size: 1.5rem;
+  text-align: center;
+  background: white;
+  border-radius: 5px;
+  padding: 0.5rem;
+  outline: black solid 1px;
+  min-width: 6rem;
+}
+
+.plan-submit-btn:hover,
+.plan-reset-btn:hover {
+  background-color: #d6a384;
+  cursor: pointer;
+}
+.plan-submit-btn {
+  margin-right: 1rem;
+}
+.plan-reset-btn {
+  margin-left: 1rem;
+}
+
 .create-plan-wait-inputs {
   font-size: 3rem;
   text-align: center;

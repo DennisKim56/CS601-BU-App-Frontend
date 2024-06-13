@@ -1,0 +1,27 @@
+.schedule-row-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.schedule-row-term-label {
+  font-size: 1.5rem;
+}
+
+.schedule-row-year-label {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.spring-label {
+  color: #0c6301;
+}
+
+.summer-label {
+  color: #00838d;
+}
+
+.winter-label {
+  color: #850d52;
+}

@@ -14,6 +14,7 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
   const [programDefinition, setProgramDefinition] = useState(null);
   const [startTerm, setStartTerm] = useState(null);
   const [startYear, setStartYear] = useState(null);
+  const [reset, setReset] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,6 +44,9 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
     })();
   }, [logout, navigate, setPlanData]);
 
+  const handleReset = () => {
+    setReset(reset + 1);
+  };
   return (
     <>
       {planData?.id ? (
@@ -62,11 +66,20 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
             setStartYear={setStartYear}
           />
           {programDefinition && startTerm && startYear ? (
-            <CreatePlanCreator
-              programDefinition={programDefinition}
-              startTerm={startTerm}
-              startYear={startYear}
-            />
+            <>
+              <div className="plan-controls">
+                <div className="plan-submit-btn">Submit</div>
+                <div className="plan-reset-btn" onClick={handleReset}>
+                  Reset
+                </div>
+              </div>
+              <CreatePlanCreator
+                key={programDefinition.id + reset}
+                programDefinition={programDefinition}
+                startTerm={startTerm}
+                startYear={startYear}
+              />
+            </>
           ) : (
             <div className="create-plan-wait-inputs">
               To get started, select a program, a starting term, and a starting

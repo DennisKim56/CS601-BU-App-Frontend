@@ -2,12 +2,19 @@ import CreatePlanCourseItem from "./CreatePlanCourseItem";
 
 import "./CreatePlanCourseContainer.css";
 
-const CreatePlanCourseContainer = ({ type, data }) => {
-  console.log(data);
+const CreatePlanCourseContainer = ({
+  type,
+  data,
+  choiceCount,
+  electiveCount,
+}) => {
   if (type === "required") {
     return (
       <div className="schedule-course-container">
-        <div className="schedule-course-container-label">Required Courses</div>
+        <div className="schedule-course-container-label">
+          Required Courses
+          <i class="fa-solid fa-eye-slash"></i>
+        </div>
         <div className="schedule-course-container-grid">
           {data.map((course) => {
             return (
@@ -24,7 +31,10 @@ const CreatePlanCourseContainer = ({ type, data }) => {
   } else if (type === "elective") {
     return (
       <div className="schedule-course-container">
-        <div className="schedule-course-container-label">Elective Courses</div>
+        <div className="schedule-course-container-label">
+          Elective Courses ({electiveCount})
+          <i class="fa-solid fa-eye-slash"></i>
+        </div>
         <div className="schedule-course-container-grid">
           {data.map((course) => {
             return (
@@ -41,9 +51,11 @@ const CreatePlanCourseContainer = ({ type, data }) => {
   } else if (type === "choice") {
     return (
       <div className="schedule-course-container">
-        <div className="schedule-course-container-label">Choose a Course</div>
+        <div className="schedule-course-container-label">
+          Choose a Course ({choiceCount})<i class="fa-solid fa-eye-slash"></i>
+        </div>
         {data.map((choice) => {
-          return <ChoiceComponent choice={choice} />;
+          return <ChoiceComponent choice={choice} key={choice.id} />;
         })}
       </div>
     );
@@ -53,9 +65,13 @@ const CreatePlanCourseContainer = ({ type, data }) => {
 const ChoiceComponent = ({ choice }) => {
   return (
     <div className="course-choice-container">
-      <CreatePlanCourseItem data={choice.choice1} type="choice" />
+      <div className="course-choice-course">
+        <CreatePlanCourseItem data={choice.choice1} type="choice" />
+      </div>
       <div className="course-choice-separator">or</div>
-      <CreatePlanCourseItem data={choice.choice2} type="choice" />
+      <div className="course-choice-course">
+        <CreatePlanCourseItem data={choice.choice2} type="choice" />
+      </div>
     </div>
   );
 };

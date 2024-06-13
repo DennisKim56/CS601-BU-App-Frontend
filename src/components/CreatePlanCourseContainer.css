@@ -12,10 +12,10 @@
 
 .schedule-course-container-grid {
   display: grid;
-  grid-template-rows: 5rem;
+  grid-template-rows: 4rem;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-gap: 1rem 1rem;
-  grid-auto-rows: 5rem;
+  grid-auto-rows: 4rem;
   grid-auto-columns: minmax(20rem, 1fr);
   padding: 1rem;
 }
@@ -25,6 +25,12 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+  height: 4rem;
+}
+
+.course-choice-course {
+  height: 100%;
+  width: 40%;
 }
 
 .course-choice-separator {
@@ -33,7 +39,12 @@
 }
 
 @media (max-width: 1200px) {
+  .course-choice-course {
+    width: 80%;
+  }
+
   .course-choice-container {
     flex-direction: column;
+    height: auto;
   }
 }
