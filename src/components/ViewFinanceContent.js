@@ -30,14 +30,6 @@ const ViewFinanceContent = ({ planData }) => {
           } else {
             termPointer++;
           }
-          let labelStyle = "view-plan-term-title";
-          if (termPointer <= 1) {
-            labelStyle += " view-plan-spring-label";
-          } else if (termPointer <= 3) {
-            labelStyle += " view-plan-summer-label";
-          } else if (termPointer <= 5) {
-            labelStyle += " view-plan-winter-label";
-          }
           let studentServiceFee = i === 0 || termPointer % 2 === 0 ? 60.0 : 0.0;
 
           let courseCost;

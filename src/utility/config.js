@@ -1,6 +1,6 @@
 const Config = {
   S3_URL_PREFIX: "https://web-assets-cs601-dkim56.s3.amazonaws.com/",
-  BACKEND_URL: "http://localhost:5000/api",
+  BACKEND_URL: "https://bu-planner-backend-2defa9e65bad.herokuapp.com/api",
   TERM_SEQUENCE: [
     "Spring 1",
     "Spring 2",
