@@ -52,6 +52,7 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
 
   const handleReset = () => {
     setReset(reset + 1);
+    setPlanCourseList([]);
   };
 
   const addCourse = (courseId, sequence) => {
