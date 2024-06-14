@@ -22,31 +22,33 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append(
-      "Authorization",
-      "Bearer " + window.localStorage.getItem("token")
-    );
+    if (!planData?.id) {
+      const myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append(
+        "Authorization",
+        "Bearer " + window.localStorage.getItem("token")
+      );
 
-    const requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-    };
+      const requestOptions = {
+        method: "GET",
+        headers: myHeaders,
+      };
 
-    (async () => {
-      const response = await fetch(getPlanApiUrl, requestOptions);
-      if (response.status === 401) {
-        navigate("/login");
-        logout();
-      } else if (response.status === 200 && response.ok) {
-        const data = await response.json();
-        if (data?.plan?.id) {
-          setPlanData(data.plan);
+      (async () => {
+        const response = await fetch(getPlanApiUrl, requestOptions);
+        if (response.status === 401) {
+          navigate("/login");
+          logout();
+        } else if (response.status === 200 && response.ok) {
+          const data = await response.json();
+          if (data?.plan?.id) {
+            setPlanData(data.plan);
+          }
         }
-      }
-    })();
-  }, [logout, navigate, setPlanData]);
+      })();
+    }
+  }, [logout, navigate, planData, setPlanData]);
 
   const handleReset = () => {
     setReset(reset + 1);
@@ -99,9 +101,7 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
     <>
       {planData?.id ? (
         <div className="plan-create-exists">
-          <div id="plan-exists" className="plan-create-exists-message">
-            {existMessage}
-          </div>
+          <div className="plan-create-exists-message">{existMessage}</div>
           <Link to="/plan/view" className="plan-create-exists-link">
             View Plan
           </Link>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import About from "./containers/About";
@@ -29,13 +29,14 @@ const App = () => {
     setNavbarOpen(!navbarOpen);
   };
 
-  const logout = () => {
+  const logout = useCallback(() => {
     setUser(null);
+    setPlanData(null);
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("userId");
     window.localStorage.removeItem("name");
     window.localStorage.removeItem("username");
-  };
+  }, []);
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
@@ -73,7 +74,7 @@ const App = () => {
     } else {
       logout();
     }
-  }, []);
+  }, [logout]);
 
   return (
     <>
@@ -97,9 +98,24 @@ const App = () => {
             <>
               <Route
                 path="/finances"
-                element={<FinanceView logout={logout} />}
+                element={
+                  <FinanceView
+                    logout={logout}
+                    planData={planData}
+                    setPlanData={setPlanData}
+                  />
+                }
               />
-              <Route path="/plan/view" element={<PlanView logout={logout} />} />
+              <Route
+                path="/plan/view"
+                element={
+                  <PlanView
+                    logout={logout}
+                    planData={planData}
+                    setPlanData={setPlanData}
+                  />
+                }
+              />
               <Route
                 path="/plan/create"
                 element={

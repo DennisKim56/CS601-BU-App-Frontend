@@ -1,0 +1,54 @@
+.plan-view-grid {
+  display: grid;
+  grid-template-rows: 8rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 1rem 1rem;
+  grid-auto-rows: 8rem;
+  grid-auto-columns: minmax(20rem, 1fr);
+  padding: 1rem;
+}
+
+.view-plan-course-container {
+  border-radius: 5px;
+  border: 1px solid darkslategray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.view-plan-term-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: solid 1px darkslategray;
+}
+
+.view-plan-course-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-bottom: 1rem;
+}
+
+.view-plan-course-id {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.view-plan-course-title {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.view-plan-spring-label {
+  color: #0c6301;
+}
+
+.view-plan-summer-label {
+  color: #00838d;
+}
+
+.view-plan-winter-label {
+  color: #850d52;
+}

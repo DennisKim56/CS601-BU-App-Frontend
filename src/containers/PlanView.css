@@ -1,0 +1,26 @@
+.plan-view-container {
+  flex-grow: 1;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-does-not-exist {
+  flex-grow: 1;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.plan-does-not-exist-message {
+  margin: 2rem 2rem 4rem 2rem;
+}
+
+.plan-does-not-exist-link {
+  padding: 1rem;
+  outline: 1px solid black;
+  border-radius: 5px;
+}
+
+.plan-does-not-exist-link:hover {
+  background-color: #d6a384;
+}

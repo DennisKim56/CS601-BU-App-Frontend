@@ -1,0 +1,35 @@
+.plan-view-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  text-decoration: underline;
+}
+.plan-view-metadata {
+  display: flex;
+  margin: 1rem 0;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid darkslategray;
+}
+
+.plan-metadata {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+}
+
+.plan-metadata-label {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.plan-metadata-value {
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 5px;
+  color: darkslategray;
+  border: solid darkslategray 1px;
+  background-color: rgba(150, 150, 150, 0.3);
+  font-style: italic;
+}
