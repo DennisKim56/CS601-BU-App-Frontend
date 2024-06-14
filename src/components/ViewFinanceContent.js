@@ -15,6 +15,11 @@ const ViewFinanceContent = ({ planData }) => {
   }
 
   let total = 0;
+
+  const sortedPlanData = planData?.courseList?.toSorted(
+    (a, b) => a.sequence - b.sequence
+  );
+
   return (
     <>
       <div className="view-finance-grid">
@@ -23,7 +28,7 @@ const ViewFinanceContent = ({ planData }) => {
         <div className="view-finance-header">Student Fee</div>
         <div className="view-finance-header">Course Fee</div>
         <div className="view-finance-header">Total Fee</div>
-        {planData?.courseList?.map((course, i) => {
+        {sortedPlanData.map((course, i) => {
           if (termPointer === 5) {
             termPointer = 0;
             year++;

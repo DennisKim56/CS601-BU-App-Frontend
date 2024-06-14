@@ -13,10 +13,12 @@ const ViewPlanContent = ({ planData }) => {
     termPointer = 5;
     year--;
   }
-
+  const sortedPlanData = planData?.courseList?.toSorted(
+    (a, b) => a.sequence - b.sequence
+  );
   return (
     <div className="plan-view-grid">
-      {planData?.courseList?.map((course) => {
+      {sortedPlanData.map((course) => {
         if (termPointer === 5) {
           termPointer = 0;
           year++;
