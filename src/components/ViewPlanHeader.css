@@ -2,8 +2,12 @@
   text-align: center;
   font-size: 2.5rem;
   margin-top: 2rem;
+}
+
+.title-text {
   text-decoration: underline;
 }
+
 .plan-view-metadata {
   display: flex;
   margin: 1rem 0;
@@ -32,4 +36,19 @@
   border: solid darkslategray 1px;
   background-color: rgba(150, 150, 150, 0.3);
   font-style: italic;
+}
+
+.delete-plan {
+  font-size: 1rem;
+  color: #aa0000;
+  text-decoration: none;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.delete-plan:hover {
+  cursor: pointer;
+  outline: 1px solid #aa0000;
 }

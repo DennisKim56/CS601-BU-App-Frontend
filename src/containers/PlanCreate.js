@@ -113,6 +113,7 @@ const PlanCreate = ({ logout, planData, setPlanData }) => {
             setProgramDefinition={setProgramDefinition}
             setStartTerm={setStartTerm}
             setStartYear={setStartYear}
+            setPlanCourseList={setPlanCourseList}
           />
           {programDefinition && startTerm && startYear ? (
             <>

@@ -44,7 +44,12 @@ const PlanView = ({ logout, planData, setPlanData }) => {
     <>
       {planData?.id ? (
         <div className="plan-view-container">
-          <ViewPlanHeader planData={planData} title="View Plan" />
+          <ViewPlanHeader
+            planData={planData}
+            title="View Plan"
+            logout={logout}
+            setPlanData={setPlanData}
+          />
           <ViewPlanContent planData={planData} />
         </div>
       ) : (

@@ -56,12 +56,15 @@ const CourseView = () => {
         <div className="course-view-title">
           Computer Science & Technology Courses
         </div>
-        <input
-          className="course-search-input"
-          type="text"
-          value={filterStr}
-          onChange={handleFilterStrChange}
-        />
+        <div className="course-search-container">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input
+            className="course-search-input"
+            type="text"
+            value={filterStr}
+            onChange={handleFilterStrChange}
+          />
+        </div>
         <div className="course-result-count">
           Results: {filteredData.length}
         </div>

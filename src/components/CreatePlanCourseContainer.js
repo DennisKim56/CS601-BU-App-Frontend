@@ -14,6 +14,10 @@ const CreatePlanCourseContainer = ({
   const toggleCourseView = () => {
     setShowCourses(!showCourses);
   };
+  let courseContainerStyle = "schedule-course-container-grid";
+  if (!showCourses) {
+    courseContainerStyle += " hidden";
+  }
   if (type === "required") {
     return (
       <div className="schedule-course-container">
@@ -31,19 +35,17 @@ const CreatePlanCourseContainer = ({
             ></i>
           )}
         </div>
-        {showCourses && (
-          <div className="schedule-course-container-grid">
-            {data.map((course) => {
-              return (
-                <CreatePlanCourseItem
-                  key={course.courseId}
-                  data={course}
-                  type="required"
-                />
-              );
-            })}
-          </div>
-        )}
+        <div className={courseContainerStyle}>
+          {data.map((course) => {
+            return (
+              <CreatePlanCourseItem
+                key={course.courseId}
+                data={course}
+                type="required"
+              />
+            );
+          })}
+        </div>
       </div>
     );
   } else if (type === "elective") {

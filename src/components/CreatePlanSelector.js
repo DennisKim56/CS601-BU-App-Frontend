@@ -17,12 +17,14 @@ const CreatePlanSelector = ({
   setProgramDefinition,
   setStartTerm,
   setStartYear,
+  setPlanCourseList,
 }) => {
   const [programId, setProgramId] = useState();
   const [programList, setProgramList] = useState([]);
 
   const handleProgramSelect = (e) => {
     setProgramId(e.target.value);
+    setPlanCourseList([]);
   };
 
   const handleStartTermSelect = (e) => {

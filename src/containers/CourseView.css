@@ -11,8 +11,7 @@
 
 .course-search-input {
   font-size: 1.5rem;
-  width: 80%;
-  margin: 2rem 10% 0.5rem;
+  width: 100%;
 }
 
 .course-result-count {
@@ -34,4 +33,16 @@
   font-size: 2rem;
   margin-top: 2rem;
   color: #aa0000;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.course-search-container {
+  margin: 2rem 10% 0.5rem;
+  width: 80%;
+  position: relative;
 }
