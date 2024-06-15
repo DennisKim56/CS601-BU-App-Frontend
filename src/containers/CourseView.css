@@ -12,6 +12,7 @@
 .course-search-input {
   font-size: 1.5rem;
   width: 100%;
+  padding-left: 40px;
 }
 
 .course-result-count {

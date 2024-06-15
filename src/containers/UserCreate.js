@@ -60,7 +60,7 @@ const UserCreate = ({ setUser, user }) => {
   };
 
   const validatePassword = (str) => {
-    const letterNumberRegex = /^[a-zA-Z0-9]+$/;
+    const letterNumberRegex = /^[a-zA-Z0-9!@#$%^&*()]+$/;
     return letterNumberRegex.test(str);
   };
 

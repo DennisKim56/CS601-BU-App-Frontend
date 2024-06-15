@@ -46,9 +46,6 @@ const Navbar = ({ logout, toggleNavbar, user }) => {
       </Link>
       {user && (
         <>
-          <Link to="/finances" className="navbar-link" onClick={toggleNavbar}>
-            Finances
-          </Link>
           <Link
             to="/plan/create"
             className="navbar-link"
@@ -58,6 +55,9 @@ const Navbar = ({ logout, toggleNavbar, user }) => {
           </Link>
           <Link to="/plan/view" className="navbar-link" onClick={toggleNavbar}>
             View Plan
+          </Link>
+          <Link to="/finances" className="navbar-link" onClick={toggleNavbar}>
+            View Finances
           </Link>
           <Link
             to="/login"
