@@ -44,7 +44,12 @@ const FinanceView = ({ logout, planData, setPlanData }) => {
     <>
       {planData?.id ? (
         <div className="plan-view-container">
-          <ViewFinanceHeader planData={planData} title="View Plan Finance" />
+          <ViewFinanceHeader
+            planData={planData}
+            title="View Plan Finance"
+            logout={logout}
+            setPlanData={setPlanData}
+          />
           <ViewFinanceContent planData={planData} />
         </div>
       ) : (
