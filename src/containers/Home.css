@@ -10,6 +10,24 @@
   }
 }
 
+@media (max-width: 800px) {
+  img.home-splash {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  img.home-splash {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  img.home-splash {
+    max-width: 200px;
+  }
+}
+
 .home-splash {
   max-width: 800px;
   margin: 3rem;

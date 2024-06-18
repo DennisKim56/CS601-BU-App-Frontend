@@ -37,3 +37,15 @@
 .header-menu-btn {
   font-size: 2rem;
 }
+
+@media (max-width: 800px) {
+  img.logo {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  div.header-text {
+    font-size: 2rem;
+  }
+}
